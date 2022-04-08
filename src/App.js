@@ -57,6 +57,8 @@ function App() {
   */
   return(
     <BrowserRouter>
+      <CssBaseline/>
+      <Container maxWidth="sm">
       <Navi />
       <Routes>
         <Route path="/Amulet" element={<Amulet/>} />
@@ -67,6 +69,8 @@ function App() {
         <Route path="/Ring" element={<Ring/>} />
         <Route path="/Wand" element={<Wand/>} />  
       </Routes>
+      </Container>
+      
     </BrowserRouter>
   )
 }
