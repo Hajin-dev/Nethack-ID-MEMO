@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+
+/* roboto-mono-regular - latin */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Mono:wght@500&display=swap');

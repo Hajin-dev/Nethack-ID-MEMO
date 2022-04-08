@@ -5,6 +5,7 @@ import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 //import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { createTheme,makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 import Navi from "./navi/Navi";
 
@@ -16,9 +17,33 @@ import Potion from "./pages/Potion"
 import Ring from "./pages/Ring"
 import Wand from "./pages/Wand"
 
+import '@fontsource/roboto';
+import Grid from '@material-ui/core/Grid';
+import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
+//import Divider from '@material-ui/core/Divider';
 
+let theme = createTheme({
+  typography:{
+    "fontFamily":[
+      'Open Sans','sans-serif'
+    ].join(","),
+  }
+  }
+);
+
+const useStyles = makeStyles({
+  setchMargin:{
+    border: 0,
+    margin: '5px 0px'
+  },
+  setChFont:{
+    fontFamily: 'Roboto Mono'
+  }
+})
+theme.spacing(4)
 function App() {
-  /*const [ch,setCh]= useState(10);
+  const [ch,setCh]= useState(10);
   var price= //가격표(price DB)
   [ {value:8,s1:4,s2:3,b1:0,b2:0},
     {value:30,s1:15,s2:11,b1:0,b2:0},
@@ -53,13 +78,29 @@ function App() {
       price[i].b2=Math.round(v.value*k*(4/3))
     })
     } 
-  setValue()<Navi ch={ch} setCh={setCh} setValue={setValue}/>
-  */
+  setValue()
+  const handleChange = (event, newValue) => {
+    setCh(newValue);
+  };
+  const classes = useStyles();
   return(
     <BrowserRouter>
+    <ThemeProvider theme={theme}>
       <CssBaseline/>
       <Container maxWidth="sm">
-      <Navi />
+      <Navi/>
+      <Grid item xs={2}/>
+      <Grid className={classes.setchMargin} container spacing={2} alignItems="center" direction="row">
+        <Grid item xs>
+          <Typography classes={{body1:classes.setChFont}} align="center" id="Ch-slider">
+          Set CH
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Slider aria-label="Ch-slider"value={ch} onChange={handleChange} min={3} max={25} valueLabelDisplay="auto"/>
+        </Grid>
+        <Grid item xs={2}/>
+      </Grid>
       <Routes>
         <Route path="/Amulet" element={<Amulet/>} />
         <Route path="/Armor" element={<Armor/>} />
@@ -70,7 +111,7 @@ function App() {
         <Route path="/Wand" element={<Wand/>} />  
       </Routes>
       </Container>
-      
+      </ThemeProvider>
     </BrowserRouter>
   )
 }
