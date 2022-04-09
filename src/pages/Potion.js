@@ -35,10 +35,65 @@ const tableIcons = {
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
+/*{0: "",
+  1:50,
+  2:50,
+  3:50,
+  4:50,
+  5:100,
+  6:100,
+  7:100,
+  8:100,
+  9:100,
+  10:100,
+  11:150,
+  12:150,
+  13:150,
+  14:150,
+  15:150,
+  16:200,
+  17:200,
+  18:200,
+  19:200,
+  20:200,
+  21:250,
+  22:250,
+  23:300,
+  24:300,
+  25:300};*/
 function Potion(props) {
+  const baseSet = {
+    0 : "",
+    1 : 50,
+    2 : 100,
+    3 : 150,
+    4 : 200,
+    5 : 250,
+    6 : 300,
+    7 : "150 or 200"
+  }
+  const sellSet = {}
+  const buySet = {}
+  Object.entries(baseSet).forEach(([key,value],i,a)=>{
+    if (key==="0"){
+      sellSet[key]=""}
+    else if (key==="7"){
+      sellSet[key]="75?"
+    }
+    else{
+      sellSet[key]=props.price.find(x=>Number(x.value)===Number(value)).s1+"("+props.price.find(x=>Number(x.value)===Number(value)).s2+")"}})
+  Object.entries(baseSet).forEach(([key,value],i,a)=>{
+    if (key==="0"){
+      buySet[key]=""}
+    else if (key==="7"){
+      buySet[key]=props.price.find(x=>Number(x.value)===200).b1+"?"
+    }
+    else{
+      buySet[key]=props.price.find(x=>Number(x.value)===Number(value)).b1+"("+props.price.find(x=>Number(x.value)===Number(value)).b2+")"}})
   const columns = [
     { field: "name",title: "Potion", canEdit: "always",
     validate: rowData=>{
+      console.log(baseSet)
       for (let x of props.potionDB){
         if ((x.no !== rowData.no)&&(x.name === rowData.name)&&(rowData.name!==0)) return 'overlapped!'
       }
@@ -72,36 +127,13 @@ function Potion(props) {
       25:"paralysis"
   }
     },
-    { field:"name",title:"Base Price", editable:'never',
-  lookup:{
-    0: "",
-    1:50,
-    2:50,
-    3:50,
-    4:50,
-    5:100,
-    6:100,
-    7:100,
-    8:100,
-    9:100,
-    10:100,
-    11:150,
-    12:150,
-    13:150,
-    14:150,
-    15:150,
-    16:200,
-    17:200,
-    18:200,
-    19:200,
-    20:200,
-    21:250,
-    22:250,
-    23:300,
-    24:300,
-    25:300
-  }
-  },
+    { field:"base",title:"Base Price", editable:'always',
+      lookup:baseSet
+    },
+    { field:"base",title:"Sell Price", editable:'always',
+      lookup: sellSet},
+    { field:"base",title:"Buy Price", editable:'always',
+      lookup: buySet},
     { field: "ap",title: "Apperance", editable:'never'
     }
   ];
@@ -115,7 +147,6 @@ function Potion(props) {
       onRowUpdate: (newData, oldData) =>
       new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(props.potionDB)
         const dataUpdate = [...props.potionDB];
         const index = oldData.tableData.id;
         dataUpdate[index] = newData;

@@ -149,7 +149,7 @@ function App() {
         <Route path="/Armor" theme={theme} element={<Armor/>} />
         <Route path="/Scroll" theme={theme} element={<Scroll/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook/>} />
-        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} setPotion={calPotion}/>} />
+        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={calPotion}/>} />
         <Route path="/Ring" theme={theme} element={<Ring/>} />
         <Route path="/Wand" theme={theme} element={<Wand/>} />  
       </Routes>
