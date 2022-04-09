@@ -75,6 +75,33 @@ function App() {
     {no:7, ap: "hexagonal", name: 0},
     {no:8, ap: "octagonal", name: 0},
   ])
+  const [potionDB,setPotion] = useState( [
+    {no:0,ap: "black",base:0, name: 0},
+    {no:1,ap: "brilliant-blue",base:0, name: 0},
+    {no:2,ap: "brown",base:0, name: 0},
+    {no:3,ap: "bubbly",base:0, name: 0},
+    {no:4,ap: "cloudy",base:0, name: 0},
+    {no:5,ap: "cyan",base:0, name: 0},
+    {no:6,ap: "dark-green",base:0, name: 0},
+    {no:7,ap: "dark",base:0, name: 0},
+    {no:8,ap: "effervescent",base:0, name: 0},
+    {no:9,ap: "emerald",base:0, name: 0},
+    {no:10,ap: "fizzy",base:0, name: 0},
+    {no:11,ap: "golden",base:0, name: 0},
+    {no:12,ap: "magenta",base:0, name: 0},
+    {no:13,ap: "milky",base:0, name: 0},
+    {no:14,ap: "murky",base:0, name: 0},
+    {no:15,ap: "orange",base:0, name: 0},
+    {no:16,ap: "pink",base:0, name: 0},
+    {no:17,ap: "puce",base:0, name: 0},
+    {no:18,ap: "purple-red",base:0, name: 0},
+    {no:19,ap: "ruby",base:0, name: 0},
+    {no:20,ap: "sky-blue",base:0, name: 0},
+    {no:21,ap: "smoky",base:0, name: 0},
+    {no:22,ap: "swirly",base:0, name: 0},
+    {no:23,ap: "white",base:0, name: 0},
+    {no:24,ap: "yellow",base:0, name: 0},
+  ])
   var k = 1;
   function setValue (){ //CH에 따른 가격 보정 (price will multiplied by CH )
     if (ch<6) k=2;
@@ -90,9 +117,14 @@ function App() {
     })
     console.log(theme)
     } 
-  setValue()
+  setValue();
+  function calPotion(x) {
+    setPotion(x)
+  }
   const handleChange = (event, newValue) => {
     setCh(newValue);
+    setValue();
+    console.log(price)
   };
   const classes = useStyles();
   return(
@@ -117,7 +149,7 @@ function App() {
         <Route path="/Armor" theme={theme} element={<Armor/>} />
         <Route path="/Scroll" theme={theme} element={<Scroll/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook/>} />
-        <Route path="/Potion" theme={theme} element={<Potion/>} />
+        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} setPotion={calPotion}/>} />
         <Route path="/Ring" theme={theme} element={<Ring/>} />
         <Route path="/Wand" theme={theme} element={<Wand/>} />  
       </Routes>

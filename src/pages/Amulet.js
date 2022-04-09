@@ -38,7 +38,6 @@ const tableIcons = {
   };
 function Amulet(props) {
   const columns = [
-    
     { field: "name",title: "Amulet",  canEdit: "always",
     validate: rowData=>{
       for (let x of props.amuletDB){
