@@ -24,7 +24,7 @@ import Typography from '@material-ui/core/Typography';
 //import Divider from '@material-ui/core/Divider';
 
 let theme = createTheme({
-  typography:{
+    typography:{
     "fontFamily":[
       'Open Sans','sans-serif'
     ].join(","),
@@ -77,6 +77,7 @@ function App() {
       price[i].b1=Math.round(v.value*k)
       price[i].b2=Math.round(v.value*k*(4/3))
     })
+    console.log(theme)
     } 
   setValue()
   const handleChange = (event, newValue) => {
@@ -89,7 +90,6 @@ function App() {
       <CssBaseline/>
       <Container maxWidth="sm">
       <Navi/>
-      <Grid item xs={2}/>
       <Grid className={classes.setchMargin} container spacing={2} alignItems="center" direction="row">
         <Grid item xs>
           <Typography classes={{body1:classes.setChFont}} align="center" id="Ch-slider">
@@ -102,13 +102,13 @@ function App() {
         <Grid item xs={2}/>
       </Grid>
       <Routes>
-        <Route path="/Amulet" element={<Amulet/>} />
-        <Route path="/Armor" element={<Armor/>} />
-        <Route path="/Scroll" element={<Scroll/>} />
-        <Route path="/SpellBook" element={<SpellBook/>} />
-        <Route path="/Potion" element={<Potion/>} />
-        <Route path="/Ring" element={<Ring/>} />
-        <Route path="/Wand" element={<Wand/>} />  
+        <Route path="/Amulet" theme={theme} element={<Amulet/>} />
+        <Route path="/Armor" theme={theme} element={<Armor/>} />
+        <Route path="/Scroll" theme={theme} element={<Scroll/>} />
+        <Route path="/SpellBook" theme={theme} element={<SpellBook/>} />
+        <Route path="/Potion" theme={theme} element={<Potion/>} />
+        <Route path="/Ring" theme={theme} element={<Ring/>} />
+        <Route path="/Wand" theme={theme} element={<Wand/>} />  
       </Routes>
       </Container>
       </ThemeProvider>
