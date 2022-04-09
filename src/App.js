@@ -64,7 +64,18 @@ function App() {
     {value:400,s1:200,s2:150,b1:0,b2:0},
     {value:600,s1:300,s2:225,b1:0,b2:0},
     {value:700,s1:350,s2:263,b1:0,b2:0}];
-    var k = 1;
+  const [amuletDB,setAmulet] = useState([
+    {no:0, ap: "circular", name: 0},
+    {no:1, ap: "spherical", name: 0},
+    {no:2, ap: "oval", name:  0},
+    {no:3, ap: "triangular", name: 0},
+    {no:4, ap: "pyramidal", name: 0},
+    {no:5, ap: "square", name: 0},
+    {no:6, ap: "concave", name: 0},
+    {no:7, ap: "hexagonal", name: 0},
+    {no:8, ap: "octagonal", name: 0},
+  ])
+  var k = 1;
   function setValue (){ //CH에 따른 가격 보정 (price will multiplied by CH )
     if (ch<6) k=2;
     if (ch>5 && ch<10) k=3/2;
@@ -102,7 +113,7 @@ function App() {
         <Grid item xs={2}/>
       </Grid>
       <Routes>
-        <Route path="/Amulet" theme={theme} element={<Amulet/>} />
+        <Route path="/Amulet" theme={theme} element={<Amulet amuletDB={amuletDB} setAmulet={setAmulet}/>} />
         <Route path="/Armor" theme={theme} element={<Armor/>} />
         <Route path="/Scroll" theme={theme} element={<Scroll/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook/>} />
