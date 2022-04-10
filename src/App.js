@@ -198,6 +198,47 @@ function App() {
   {no:24, ap: "tin",base: 0, name: 0},
   {no:25, ap: "uranium",base: 0, name: 0},
   {no:26, ap: "zinc",base: 0, name: 0},])
+  const [scrollDB,setScroll]=useState([{no:0, ap: "ABRA KA DABRA",base: 0, name: 0},
+  {no:1, ap: "ANDOVA BEGARIN",base: 0, name: 0},
+  {no:2, ap: "ASHPD SODALG",base: 0, name: 0},
+  {no:3, ap: "DAIYEN FOOELS",base: 0, name: 0},
+  {no:4, ap: "DUAM XNAHT",base: 0, name: 0},
+  {no:5, ap: "EIRIS SAZUN IDISI",base: 0, name: 0},
+  {no:6, ap: "ELAM EBOW",base: 0, name: 0},
+  {no:7, ap: "ELBIB YLOH",base: 0, name: 0},
+  {no:8, ap: "ETAOIN SHRDLU",base: 0, name: 0},
+  {no:9, ap: "FNORD",base: 0, name: 0},
+  {no:10, ap: "FOOBIE BLETCH",base: 0, name: 0},
+  {no:11, ap: "GARVEN DEH",base: 0, name: 0},
+  {no:12, ap: "GHOTI",base: 0, name: 0},
+  {no:13, ap: "GNIK SISI VLE",base: 0, name: 0},
+  {no:14, ap: "HACKEM MUCHE",base: 0, name: 0},
+  {no:15, ap: "HAPAX LEGOMENON",base: 0, name: 0},
+  {no:16, ap: "JUYED AWK YACC",base: 0, name: 0},
+  {no:17, ap: "KERNOD WEL",base: 0, name: 0},
+  {no:18, ap: "KIRJE",base: 0, name: 0},
+  {no:19, ap: "KO BATE",base: 0, name: 0},
+  {no:20, ap: "LEP GEX VEN ZEA",base: 0, name: 0},
+  {no:21, ap: "LOREM IPSUM",base: 0, name: 0},
+  {no:22, ap: "MAPIRO MAHAMA DIROMAT",base: 0, name: 0},
+  {no:23, ap: "NR 9",base: 0, name: 0},
+  {no:24, ap: "PHOL ENDE WODAN",base: 0, name: 0},
+  {no:25, ap: "PRATYAVAYAH",base: 0, name: 0},
+  {no:26, ap: "PRIRUTSENIE",base: 0, name: 0},
+  {no:27, ap: "READ ME",base: 0, name: 0},
+  {no:28, ap: "STRC PRST SKRZ KRK",base: 0, name: 0},
+  {no:29, ap: "TEMOV",base: 0, name: 0},
+  {no:30, ap: "THARR",base: 0, name: 0},
+  {no:31, ap: "VAS CORP BET MANI",base: 0, name: 0},
+  {no:32, ap: "VE FORBRYDERNE",base: 0, name: 0},
+  {no:33, ap: "VELOX NEB",base: 0, name: 0},
+  {no:34, ap: "VENZAR BORGAVVE",base: 0, name: 0},
+  {no:35, ap: "VERR YED HORRE",base: 0, name: 0},
+  {no:36, ap: "XIXAXA XOXAXA XUXAXA",base: 0, name: 0},
+  {no:37, ap: "XOR OTA",base: 0, name: 0},
+  {no:38, ap: "YUM YUM",base: 0, name: 0},
+  {no:39, ap: "ZELGO MER",base: 0, name: 0},
+  {no:40, ap: "ZLORFIK",base: 0, name: 0},])
   var k = 1;
   function setValue (){ //CH에 따른 가격 보정 (price will multiplied by CH )
     if (ch<6) k=2;
@@ -239,7 +280,7 @@ function App() {
       <Routes>
         <Route path="/Amulet" theme={theme} element={<Amulet amuletDB={amuletDB} setAmulet={setAmulet}/>} />
         <Route path="/Armor" theme={theme} element={<Armor/>} />
-        <Route path="/Scroll" theme={theme} element={<Scroll/>} />
+        <Route path="/Scroll" theme={theme} element={<Scroll scrollDB={scrollDB} price={price} setScroll={setScroll}/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={setBook}/>} />
         <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={setPotion}/>} />
         <Route path="/Ring" theme={theme} element={<Ring ringDB={ringDB} price={price} setRing={setRing}/>} />
