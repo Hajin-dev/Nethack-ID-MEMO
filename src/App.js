@@ -143,6 +143,34 @@ function App() {
     {no:37, ap: "white",base: 0, name: 0},
     {no:38, ap: "wrinkled",base: 0, name: 0},
     {no:39, ap: "yellow",base: 0, name: 0}])
+  const [ringDB,setRing]=useState([{no:0, ap: "agate",base: 0, name: 0},     
+  {no:1, ap: "black onyx",base: 0, name: 0},
+  {no:2, ap: "brass",base: 0, name: 0},     
+  {no:3, ap: "bronze",base: 0, name: 0},    
+  {no:4, ap: "clay",base: 0, name: 0},      
+  {no:5, ap: "copper",base: 0, name: 0},    
+  {no:6, ap: "coral",base: 0, name: 0},     
+  {no:7, ap: "diamond",base: 0, name: 0},   
+  {no:8, ap: "emerald",base: 0, name: 0},   
+  {no:9, ap: "engagement",base: 0, name: 0},
+  {no:10, ap: "gold",base: 0, name: 0},     
+  {no:11, ap: "granite",base: 0, name: 0},  
+  {no:12, ap: "iron",base: 0, name: 0},     
+  {no:13, ap: "ivory",base: 0, name: 0},    
+  {no:14, ap: "jade",base: 0, name: 0},     
+  {no:15, ap: "moonstone",base: 0, name: 0},
+  {no:16, ap: "opal",base: 0, name: 0},     
+  {no:17, ap: "pearl",base: 0, name: 0},    
+  {no:18, ap: "ruby",base: 0, name: 0},     
+  {no:19, ap: "sapphire",base: 0, name: 0}, 
+  {no:20, ap: "shiny",base: 0, name: 0},    
+  {no:21, ap: "silver",base: 0, name: 0},   
+  {no:22, ap: "steel",base: 0, name: 0},    
+  {no:23, ap: "tiger eye",base: 0, name: 0},
+  {no:24, ap: "topaz",base: 0, name: 0},    
+  {no:25, ap: "twisted",base: 0, name: 0},  
+  {no:26, ap: "wire",base: 0, name: 0},     
+  {no:27, ap: "wooden",base: 0, name: 0},  ])
   var k = 1;
   function setValue (){ //CH에 따른 가격 보정 (price will multiplied by CH )
     if (ch<6) k=2;
@@ -190,7 +218,7 @@ function App() {
         <Route path="/Scroll" theme={theme} element={<Scroll/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={setBook}/>} />
         <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={calPotion}/>} />
-        <Route path="/Ring" theme={theme} element={<Ring/>} />
+        <Route path="/Ring" theme={theme} element={<Ring ringDB={ringDB} price={price} setRing={setRing}/>} />
         <Route path="/Wand" theme={theme} element={<Wand/>} />  
       </Routes>
       </Container>

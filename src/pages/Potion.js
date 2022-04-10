@@ -38,32 +38,6 @@ const tableIcons = {
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
-/*{0: "",
-  1:50,
-  2:50,
-  3:50,
-  4:50,
-  5:100,
-  6:100,
-  7:100,
-  8:100,
-  9:100,
-  10:100,
-  11:150,
-  12:150,
-  13:150,
-  14:150,
-  15:150,
-  16:200,
-  17:200,
-  18:200,
-  19:200,
-  20:200,
-  21:250,
-  22:250,
-  23:300,
-  24:300,
-  25:300};*/
 function Potion(props) {
   const potionInfo =  {
     0:"",

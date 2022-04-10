@@ -29,7 +29,7 @@ export default function Navi() {
     <BottomNavigationAction classes={{label:classes.label}} componet={RouterLink} to="/Armor" value="Armor" label="Armor" icon={<GiLayeredArmor />} />
     <BottomNavigationAction classes={{label:classes.label}} componet={RouterLink} to="/SpellBook" value="SpellBook" label="SpellBook" icon={<GiSpellBook />} />
     <BottomNavigationAction classes={{label:classes.label}} componet={RouterLink} to="/Ring" value="Ring" label="Ring" icon={<GiDiamondRing />} />
-    <BottomNavigationAction classes={{label:classes.label}} componet={RouterLink} to="/Wand" value="Ring" label="Wand" icon={<ImMagicWand />} />
+    <BottomNavigationAction classes={{label:classes.label}} componet={RouterLink} to="/Wand" value="Wand" label="Wand" icon={<ImMagicWand />} />
   </BottomNavigation>
   );
 }
