@@ -142,7 +142,7 @@ function Ring(props) {
   ];
   return (
     <MaterialTable
-    title="Potion"
+    title="Ring"
     columns={columns}
     data={props.ringDB}
     icons={tableIcons}

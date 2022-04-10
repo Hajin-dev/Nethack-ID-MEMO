@@ -171,6 +171,33 @@ function App() {
   {no:25, ap: "twisted",base: 0, name: 0},  
   {no:26, ap: "wire",base: 0, name: 0},     
   {no:27, ap: "wooden",base: 0, name: 0},  ])
+  const [wandDB,setWand]=useState([{no:0, ap: "aluminum",base: 0, name: 0}, 
+  {no:1, ap: "balsa",base: 0, name: 0},    
+  {no:2, ap: "brass",base: 0, name: 0},    
+  {no:3, ap: "copper",base: 0, name: 0},   
+  {no:4, ap: "crystal",base: 0, name: 0},  
+  {no:5, ap: "curved",base: 0, name: 0},   
+  {no:6, ap: "ebony",base: 0, name: 0},    
+  {no:7, ap: "forked",base: 0, name: 0},   
+  {no:8, ap: "glass",base: 0, name: 0},    
+  {no:9, ap: "hexagonal",base: 0, name: 0},
+  {no:10, ap: "iridium",base: 0, name: 0}, 
+  {no:11, ap: "iron",base: 0, name: 0},    
+  {no:12, ap: "jeweled",base: 0, name: 0}, 
+  {no:13, ap: "long",base: 0, name: 0},    
+  {no:14, ap: "maple",base: 0, name: 0},   
+  {no:15, ap: "marble",base: 0, name: 0},  
+  {no:16, ap: "oak",base: 0, name: 0},     
+  {no:17, ap: "pine",base: 0, name: 0},    
+  {no:18, ap: "platinum",base: 0, name: 0},
+  {no:19, ap: "runed",base: 0, name: 0},
+  {no:20, ap: "short",base: 0, name: 0},
+  {no:21, ap: "silver",base: 0, name: 0},
+  {no:22, ap: "spiked",base: 0, name: 0},
+  {no:23, ap: "steel",base: 0, name: 0},
+  {no:24, ap: "tin",base: 0, name: 0},
+  {no:25, ap: "uranium",base: 0, name: 0},
+  {no:26, ap: "zinc",base: 0, name: 0},])
   var k = 1;
   function setValue (){ //CH에 따른 가격 보정 (price will multiplied by CH )
     if (ch<6) k=2;
@@ -186,9 +213,6 @@ function App() {
     })
     } 
   setValue();
-  function calPotion(x) {
-    setPotion(x)
-  }
   const handleChange = (event, newValue) => {
     setCh(newValue);
     setValue();
@@ -217,9 +241,9 @@ function App() {
         <Route path="/Armor" theme={theme} element={<Armor/>} />
         <Route path="/Scroll" theme={theme} element={<Scroll/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={setBook}/>} />
-        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={calPotion}/>} />
+        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={setPotion}/>} />
         <Route path="/Ring" theme={theme} element={<Ring ringDB={ringDB} price={price} setRing={setRing}/>} />
-        <Route path="/Wand" theme={theme} element={<Wand/>} />  
+        <Route path="/Wand" theme={theme} element={<Wand wandDB={wandDB} price={price} setWand={setWand}/>} />  
       </Routes>
       </Container>
       </ThemeProvider>
