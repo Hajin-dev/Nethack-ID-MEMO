@@ -1,4 +1,6 @@
-import React, { forwardRef } from 'react';
+import _ from 'lodash'
+
+import React, {forwardRef } from 'react';
 import MaterialTable from 'material-table';
 
 import AddBox from '@material-ui/icons/AddBox';
@@ -16,6 +18,7 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import { FormControl,MenuItem, Select } from '@material-ui/core';
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -62,6 +65,43 @@ const tableIcons = {
   24:300,
   25:300};*/
 function Potion(props) {
+  const potionInfo =  {
+    0:"",
+    1:"booze",
+    2:"fruit juice",
+    3:"see invisible",
+    4:"sickness",
+    5:"confusion",
+    6:"extra healing",
+    7:"hallucination",
+    8:"healing",
+    9:"restore ability",
+    10:"sleeping",
+    11:"blindness",
+    12:"gain energy",
+    13:"invisibility",
+    14:"monster detection",
+    15:"object detection",
+    16:"enlightenment",
+    17:"full healing",
+    18:"levitation",
+    19:"polymorph",
+    20:"speed",
+    21:"acid",
+    22:"oil",
+    23:"gain ability",
+    24:"gain level",
+    25:"paralysis"}
+  function setAvailable(x){
+    if (0===Number(x)) return(potionInfo)
+    if (1===Number(x)) return(_.pick(potionInfo,_.range(1,5)))
+    if (2===Number(x)) return(_.pick(potionInfo,_.range(5,11)))
+    if (3===Number(x)) return(_.pick(potionInfo,_.range(11,16)))
+    if (4===Number(x)) return(_.pick(potionInfo,_.range(16,21)))
+    if (5===Number(x)) return(_.pick(potionInfo,_.range(22,24)))
+    if (6===Number(x)) return(_.pick(potionInfo,_.range(24,26)))
+    if (7===Number(x)) return(_.pick(potionInfo,_.range(11,21)))
+  }
   const baseSet = {
     0 : "",
     1 : 50,
@@ -70,8 +110,7 @@ function Potion(props) {
     4 : 200,
     5 : 250,
     6 : 300,
-    7 : "150 or 200"
-  }
+    7 : "150 or 200"}
   const sellSet = {}
   const buySet = {}
   Object.entries(baseSet).forEach(([key,value],i,a)=>{
@@ -92,44 +131,34 @@ function Potion(props) {
       buySet[key]=props.price.find(x=>Number(x.value)===Number(value)).b1+"("+props.price.find(x=>Number(x.value)===Number(value)).b2+")"}})
   const columns = [
     { field: "name",title: "Potion", canEdit: "always",
-    validate: rowData=>{
-      console.log(baseSet)
-      for (let x of props.potionDB){
-        if ((x.no !== rowData.no)&&(x.name === rowData.name)&&(rowData.name!==0)) return 'overlapped!'
-      }
-      return ''},
-    lookup: {
-      0:"",
-      1:"booze",
-      2:"fruit juice",
-      3:"see invisible",
-      4:"sickness",
-      5:"confusion",
-      6:"extra healing",
-      7:"hallucination",
-      8:"healing",
-      9:"restore ability",
-      10:"sleeping",
-      11:"blindness",
-      12:"gain energy",
-      13:"invisibility",
-      14:"monster detection",
-      15:"object detection",
-      16:"enlightenment",
-      17:"full healing",
-      18:"levitation",
-      19:"polymorph",
-      20:"speed",
-      21:"acid",
-      22:"oil",
-      23:"gain ability",
-      24:"gain level",
-      25:"paralysis"
-  }
+      validate: rowData=>{
+        for (let x of props.potionDB){
+          if ((x.no !== rowData.no)&&(x.name === rowData.name)&&(rowData.name!==0)) return 'overlapped!'
+        }
+        return ''},
+        editComponent:({value,onChange,rowData})=>{
+          const potionList =  _.toPairs(setAvailable(rowData.base))
+          return (<FormControl>
+            <Select
+            value={value}
+            onChange={(event)=>{
+              onChange(event.target.value);
+            }}>
+              {
+              potionList.map((x)=>(
+                <MenuItem key={x[0]} value={x[0]}>
+                  {x[1]}
+                </MenuItem>
+              ))
+            }
+            </Select>
+            
+          </FormControl>)},
+        lookup: potionInfo
     },
-    { field:"base",title:"Base Price", editable:'always',
-      lookup:baseSet
-    },
+    /*{ field:"base",title:"Base Price", editable:'always',
+      lookup: baseSet
+    },*/
     { field:"base",title:"Sell Price", editable:'always',
       lookup: sellSet},
     { field:"base",title:"Buy Price", editable:'always',
@@ -144,21 +173,47 @@ function Potion(props) {
     data={props.potionDB}
     icons={tableIcons}
     editable={{
-      onRowUpdate: (newData, oldData) =>
-      new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const dataUpdate = [...props.potionDB];
-        const index = oldData.tableData.id;
-        dataUpdate[index] = newData;
-        props.setPotion([...dataUpdate]);
-        resolve();
-      }, 500)
-    })
+      onRowUpdate: (newData, oldData) =>{
+        return new Promise((resolve, reject) =>{
+          setTimeout(() => {
+            const dataUpdate = [...props.potionDB];
+            const index = oldData.tableData.id;
+            dataUpdate[index] = newData;
+            if(Number(newData.name)!==0){
+              if(Number(newData.name)<5) dataUpdate[index].base=1
+              else if(Number(newData.name)<11) dataUpdate[index].base=2
+              else if(Number(newData.name)<16) dataUpdate[index].base=3
+              else if(Number(newData.name)<21) dataUpdate[index].base=4
+              else if(Number(newData.name)<24) dataUpdate[index].base=5    
+              else if(Number(newData.name)<26) dataUpdate[index].base=6       
+              }
+            props.setPotion([...dataUpdate]);
+            resolve();
+          }, 500)})},
+      onRowDelete: rowData=>{
+      return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          const resetRow=[...props.potionDB];
+          const index = rowData.tableData.id;
+          resetRow[index].base=0
+          resetRow[index].name=0
+          props.setPotion([...resetRow])
+          resolve();
+        },500)
+      })
+    }
+        }}
+        options={{
+          paging:false
+        }}
+    localization={{
+      body:{
+        deleteTooltip:"Reset",
+        editRow:{
+          deletText:"Reset?"
+        }
+      }
     }}
-    options={{
-      paging:false
-    }}
-
     />
   )
 }

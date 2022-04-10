@@ -1,0 +1,9 @@
+editComponent: (tableData)=>(
+    <Select 
+    value={tableData.value} 
+    onChange={(e)=>{
+      tableData.onChange(e.target.value);}}>
+    {Object.entries(setAvailable(tableData.value)).forEach(x=><MenuItem
+      key={x[0]} value={x[0]}>{x[1]}</MenuItem>)}
+    </Select>
+  )

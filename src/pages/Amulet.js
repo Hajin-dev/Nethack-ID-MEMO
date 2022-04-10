@@ -79,7 +79,17 @@ function Amulet(props) {
         props.setAmulet([...dataUpdate]);
         resolve();
       }, 500)
-    })
+    }),onRowDelete: rowData=>{
+      return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          const resetRow=[...props.amuletDB];
+          const index = rowData.tableData.id;
+          resetRow[index].name=0
+          props.setAmulet([...resetRow])
+          resolve();
+        },500)
+      })
+    }
     }}
     options={{
       paging:false

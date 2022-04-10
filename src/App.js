@@ -102,6 +102,47 @@ function App() {
     {no:23,ap: "white",base:0, name: 0},
     {no:24,ap: "yellow",base:0, name: 0},
   ])
+  const [bookDB,setBook] = useState([
+    {no:0, ap: "bronze",base: 0, name: 0},
+    {no:1, ap: "cloth",base: 0, name: 0},
+    {no:2, ap: "copper",base: 0, name: 0},
+    {no:3, ap: "cyan",base: 0, name: 0},
+    {no:4, ap: "dark blue",base: 0, name: 0},
+    {no:5, ap: "dark brown",base: 0, name: 0},
+    {no:6, ap: "dark green",base: 0, name: 0},
+    {no:7, ap: "dog eared",base: 0, name: 0},
+    {no:8, ap: "dull",base: 0, name: 0},
+    {no:9, ap: "dusty",base: 0, name: 0},
+    {no:10, ap: "glittering",base: 0, name: 0},
+    {no:11, ap: "gold",base: 0, name: 0},
+    {no:12, ap: "gray",base: 0, name: 0},
+    {no:13, ap: "indigo",base: 0, name: 0},
+    {no:14, ap: "leather",base: 0, name: 0},
+    {no:15, ap: "light blue",base: 0, name: 0},
+    {no:16, ap: "light brown",base: 0, name: 0},
+    {no:17, ap: "light green",base: 0, name: 0},
+    {no:18, ap: "magenta",base: 0, name: 0},
+    {no:19, ap: "mottled",base: 0, name: 0},
+    {no:20, ap: "orange",base: 0, name: 0},
+    {no:21, ap: "parchment",base: 0, name: 0},
+    {no:22, ap: "pink",base: 0, name: 0},
+    {no:23, ap: "plaid",base: 0, name: 0},
+    {no:24, ap: "purple",base: 0, name: 0},
+    {no:25, ap: "ragged",base: 0, name: 0},
+    {no:26, ap: "red",base: 0, name: 0},
+    {no:27, ap: "shining",base: 0, name: 0},
+    {no:28, ap: "silver",base: 0, name: 0},
+    {no:29, ap: "stained",base: 0, name: 0},
+    {no:30, ap: "tan",base: 0, name: 0},
+    {no:31, ap: "thick",base: 0, name: 0},
+    {no:32, ap: "thin",base: 0, name: 0},
+    {no:33, ap: "turquoise",base: 0, name: 0},
+    {no:34, ap: "vellum",base: 0, name: 0},
+    {no:35, ap: "velvet",base: 0, name: 0},
+    {no:36, ap: "violet",base: 0, name: 0},
+    {no:37, ap: "white",base: 0, name: 0},
+    {no:38, ap: "wrinkled",base: 0, name: 0},
+    {no:39, ap: "yellow",base: 0, name: 0}])
   var k = 1;
   function setValue (){ //CH에 따른 가격 보정 (price will multiplied by CH )
     if (ch<6) k=2;
@@ -115,7 +156,6 @@ function App() {
       price[i].b1=Math.round(v.value*k)
       price[i].b2=Math.round(v.value*k*(4/3))
     })
-    console.log(theme)
     } 
   setValue();
   function calPotion(x) {
@@ -148,7 +188,7 @@ function App() {
         <Route path="/Amulet" theme={theme} element={<Amulet amuletDB={amuletDB} setAmulet={setAmulet}/>} />
         <Route path="/Armor" theme={theme} element={<Armor/>} />
         <Route path="/Scroll" theme={theme} element={<Scroll/>} />
-        <Route path="/SpellBook" theme={theme} element={<SpellBook/>} />
+        <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={setBook}/>} />
         <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={calPotion}/>} />
         <Route path="/Ring" theme={theme} element={<Ring/>} />
         <Route path="/Wand" theme={theme} element={<Wand/>} />  
