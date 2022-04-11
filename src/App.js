@@ -1,4 +1,4 @@
-import React,{useState}from 'react';
+import React,{useState,useEffect}from 'react';
 import{ BrowserRouter,Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -21,7 +21,8 @@ import '@fontsource/roboto';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
-//import Divider from '@material-ui/core/Divider';
+
+import { useCookies } from "react-cookie";
 
 let theme = createTheme({
     typography:{
@@ -43,13 +44,15 @@ const useStyles = makeStyles({
 })
 theme.spacing(4)
 function App() {
+
+  
   const [ch,setCh]= useState(10);
   var price= //가격표(price DB)
   [ {value:8,s1:4,s2:3,b1:0,b2:0},
+    {value:10,s1:5,s2:4,b1:0,b2:0},
     {value:30,s1:15,s2:11,b1:0,b2:0},
     {value:50,s1:25,s2:19,b1:0,b2:0},
     {value:40,s1:20,s2:15,b1:0,b2:0},
-    {value:50,s1:25,s2:19,b1:0,b2:0},
     {value:60,s1:30,s2:23,b1:0,b2:0},
     {value:20,s1:10,s2:8,b1:0,b2:0},
     {value:80,s1:40,s2:30,b1:0,b2:0},
@@ -101,6 +104,27 @@ function App() {
     {no:22,ap: "swirly",base:0, name: 0},
     {no:23,ap: "white",base:0, name: 0},
     {no:24,ap: "yellow",base:0, name: 0},
+  ])
+  const [armorDB,setArmor] = useState([
+    {ar:0, ap: "plumed helmet",base: 0, name: 0},
+    {ar:0, ap: "etched helmet",base: 0, name: 0},
+    {ar:0, ap: "crested helmet",base: 0, name: 0},
+    {ar:0, ap: "visored helmet",base: 0, name: 0},
+    {ar:1, ap: "tattered cape",base: 0, name: 0},
+    {ar:1, ap: "ornamental cope",base: 0, name: 0},
+    {ar:1, ap: "opera cloak",base: 0, name: 0},
+    {ar:1, ap: "piece of cloth",base: 0, name: 0},
+    {ar:2, ap: "old gloves",base: 0, name: 0},
+    {ar:2, ap: "padded gloves",base: 0, name: 0},
+    {ar:2, ap: "riding gloves",base: 0, name: 0},
+    {ar:2, ap: "fencing gloves",base: 0, name: 0},
+    {ar:3, ap: "mud boots",base: 0, name: 0},
+    {ar:3, ap: "snow boots",base: 0, name: 0},
+    {ar:3, ap: "riding boots",base: 0, name: 0},
+    {ar:3, ap: "buckled boots",base: 0, name: 0},
+    {ar:3, ap: "hiking boots",base: 0, name: 0},
+    {ar:3, ap: "combat boots",base: 0, name: 0},
+    {ar:3, ap: "jungle boots",base: 0, name: 0},
   ])
   const [bookDB,setBook] = useState([
     {no:0, ap: "bronze",base: 0, name: 0},
@@ -260,6 +284,8 @@ function App() {
     console.log(price)
   };
   const classes = useStyles();
+  const [cookies, setCookie, removeCookie] = useCookies(['userDB']);
+
   return(
     <BrowserRouter>
     <ThemeProvider theme={theme}>
@@ -279,7 +305,7 @@ function App() {
       </Grid>
       <Routes>
         <Route path="/Amulet" theme={theme} element={<Amulet amuletDB={amuletDB} setAmulet={setAmulet}/>} />
-        <Route path="/Armor" theme={theme} element={<Armor/>} />
+        <Route path="/Armor" theme={theme} element={<Armor armorDB={armorDB} price={price} setArmor={setArmor}/>} />
         <Route path="/Scroll" theme={theme} element={<Scroll scrollDB={scrollDB} price={price} setScroll={setScroll}/>} />
         <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={setBook}/>} />
         <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={setPotion}/>} />
