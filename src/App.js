@@ -27,7 +27,7 @@ import { AiOutlineClear } from "react-icons/ai";
 import Checkbox from '@material-ui/core/Checkbox';
 import { BiCookie } from "react-icons/bi";
 import SvgIcon from '@material-ui/core/SvgIcon';
-
+import {setCookie, getCookie} from "./cookie"
 let theme = createTheme({
     typography:{
     "fontFamily":[
@@ -52,6 +52,10 @@ const useStyles = makeStyles({
 theme.spacing(4)
 function App() {
   const [ch,setCh]= useState(10);
+  useEffect(()=>{
+    if(getCookie('ch')!==undefined)
+      setCh(getCookie('ch'))
+  },[])
   var price= //가격표(price DB)
   [ {value:8,s1:4,s2:3,b1:0,b2:0},
     {value:10,s1:5,s2:4,b1:0,b2:0},
@@ -472,6 +476,7 @@ function App() {
   const handleChange = (event, newValue) => {
     setCh(newValue);
     setValue();
+    setCookie('ch',newValue);
     console.log(price)
   };
   const classes = useStyles();
