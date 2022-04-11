@@ -22,8 +22,6 @@ import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 
-import { useCookies } from "react-cookie";
-
 let theme = createTheme({
     typography:{
     "fontFamily":[
@@ -284,8 +282,6 @@ function App() {
     console.log(price)
   };
   const classes = useStyles();
-  const [cookies, setCookie, removeCookie] = useCookies(['userDB']);
-
   return(
     <BrowserRouter>
     <ThemeProvider theme={theme}>
