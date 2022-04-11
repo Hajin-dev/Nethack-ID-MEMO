@@ -24,6 +24,9 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { AiOutlineClear } from "react-icons/ai";
+import Checkbox from '@material-ui/core/Checkbox';
+import { BiCookie } from "react-icons/bi";
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 let theme = createTheme({
     typography:{
@@ -487,11 +490,14 @@ function App() {
         <Grid item xs={6}>
           <Slider aria-label="Ch-slider"value={ch} onChange={handleChange} min={3} max={25} valueLabelDisplay="auto"/>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Tooltip title="Clear Data">
             <IconButton color="primary" aria-label="Clear Data" component="span" onClick={resetData}>
               <AiOutlineClear />
             </IconButton>
+          </Tooltip>
+          <Tooltip title="Save Cookie?">
+          <Checkbox icon={<BiCookie />} checkedIcon={<SvgIcon color="primary"><path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3.003-2.938.005-.034.016-.134.017-.168a.998.998 0 0 0-1.254-1.006A3.002 3.002 0 0 1 15 7c-1.654 0-3-1.346-3-3 0-.217.031-.444.099-.716a1 1 0 0 0-1.067-1.236A9.956 9.956 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.049-.003-.097-.007-.16a1.004 1.004 0 0 0-.395-.776zM8.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-2 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.5-6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm3.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path></SvgIcon>} name="checkedH" />
           </Tooltip>
         </Grid>
       </Grid>
