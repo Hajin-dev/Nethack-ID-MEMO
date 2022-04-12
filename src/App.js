@@ -27,7 +27,7 @@ import { AiOutlineClear } from "react-icons/ai";
 import Checkbox from '@material-ui/core/Checkbox';
 import { BiCookie } from "react-icons/bi";
 import SvgIcon from '@material-ui/core/SvgIcon';
-import {setCookie, getCookie} from "./cookie"
+import {setCookie, getCookie,removeCookie} from "./cookie"
 let theme = createTheme({
     typography:{
     "fontFamily":[
@@ -51,11 +51,8 @@ const useStyles = makeStyles({
 })
 theme.spacing(4)
 function App() {
+  const [isRemeber,setRemember]=useState(false);
   const [ch,setCh]= useState(10);
-  useEffect(()=>{
-    if(getCookie('ch')!==undefined)
-      setCh(getCookie('ch'))
-  },[])
   var price= //가격표(price DB)
   [ {value:8,s1:4,s2:3,b1:0,b2:0},
     {value:10,s1:5,s2:4,b1:0,b2:0},
@@ -472,12 +469,119 @@ function App() {
       {no:38, ap: "YUM YUM",base: 0, name: 0},
       {no:39, ap: "ZELGO MER",base: 0, name: 0},
       {no:40, ap: "ZLORFIK",base: 0, name: 0},])
+    if(isRemeber){
+      setCookie('ar',armorDB)
+      setCookie('am',amuletDB)
+      setCookie('po',potionDB)
+      setCookie('sc',scrollDB)
+      setCookie('sp',bookDB)
+      setCookie('rj',ringDB)
+      setCookie('wa',wandDB)
+    }
   }
-  const handleChange = (event, newValue) => {
+  useEffect(()=>{
+    if(getCookie('ch')!==undefined)
+      {setCh(getCookie('ch'))
+      setRemember(true)}
+    if(getCookie('am')!==undefined){
+      setAmulet(getCookie('am'))
+      setRemember(true)}
+    if(getCookie('ar')!==undefined){
+      setArmor(getCookie('ar'))
+      setRemember(true)}
+    if(getCookie('sc')!==undefined){
+      setScroll(getCookie('sc'))
+      setRemember(true)}
+    if(getCookie('po')!==undefined){
+      setPotion(getCookie('po'))
+      setRemember(true)}
+    if(getCookie('bo')!==undefined){
+      setBook(getCookie('bo'))
+      setRemember(true)}
+    if(getCookie('ri')!==undefined){
+      setRing(getCookie('ri'))
+      setRemember(true)}
+    if(getCookie('wa')!==undefined){
+      setWand(getCookie('wa'))
+      setRemember(true)}
+      
+  },[])
+  const handlechChange = (event, newValue) => {
     setCh(newValue);
     setValue();
-    setCookie('ch',newValue);
-    console.log(price)
+    if(isRemeber){
+      setCookie('ch',newValue)
+    }
+  };
+  const handleAmChange = (newValue) => {
+    setAmulet(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('am',newValue)
+    }
+  };
+  const handleArChange = (newValue) => {
+    setArmor(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('ar',newValue)
+    }
+  };
+  const handleScChange = (newValue) => {
+    setScroll(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('sc',newValue)
+    }
+  };
+  const handlePoChange = (newValue) => {
+    setPotion(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('po',newValue)
+    }
+  };
+  const handleBoChange = (newValue) => {
+    setBook(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('bo',newValue)
+    }
+  };
+  const handleWaChange = (newValue) => {
+    setWand(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('wa',newValue)
+    }
+  };
+  const handleRiChange = (newValue) => {
+    setRing(newValue);
+    setValue();
+    if(isRemeber){
+      setCookie('ri',newValue)
+    }
+  };
+  const handleCookie = (event) => {
+    setRemember(event.target.checked)
+    if(event.target.cheked){
+      setCookie('ch',ch)
+      setCookie('am',amuletDB)
+      setCookie('ar',armorDB)
+      setCookie('sc',scrollDB)
+      setCookie('po',potionDB)
+      setCookie('wa',wandDB)
+      setCookie('ri',wandDB)
+    }
+    else{
+      removeCookie('ch')
+      removeCookie('am')
+      removeCookie('ar')
+      removeCookie('sc')
+      removeCookie('po')
+      removeCookie('wa')
+      removeCookie('ri')
+    }
   };
   const classes = useStyles();
   return(
@@ -493,7 +597,7 @@ function App() {
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <Slider aria-label="Ch-slider"value={ch} onChange={handleChange} min={3} max={25} valueLabelDisplay="auto"/>
+          <Slider aria-label="Ch-slider"value={ch} onChange={handlechChange} min={3} max={25} valueLabelDisplay="auto"/>
         </Grid>
         <Grid item xs={3}>
           <Tooltip title="Clear Data">
@@ -502,18 +606,22 @@ function App() {
             </IconButton>
           </Tooltip>
           <Tooltip title="Save Cookie?">
-          <Checkbox icon={<BiCookie />} checkedIcon={<SvgIcon color="primary"><path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3.003-2.938.005-.034.016-.134.017-.168a.998.998 0 0 0-1.254-1.006A3.002 3.002 0 0 1 15 7c-1.654 0-3-1.346-3-3 0-.217.031-.444.099-.716a1 1 0 0 0-1.067-1.236A9.956 9.956 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.049-.003-.097-.007-.16a1.004 1.004 0 0 0-.395-.776zM8.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-2 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.5-6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm3.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path></SvgIcon>} name="checkedH" />
+          <Checkbox
+          onChange={handleCookie}
+          checked={isRemeber}
+          icon={<BiCookie />}
+          checkedIcon={<SvgIcon color="primary"><path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3.003-2.938.005-.034.016-.134.017-.168a.998.998 0 0 0-1.254-1.006A3.002 3.002 0 0 1 15 7c-1.654 0-3-1.346-3-3 0-.217.031-.444.099-.716a1 1 0 0 0-1.067-1.236A9.956 9.956 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.049-.003-.097-.007-.16a1.004 1.004 0 0 0-.395-.776zM8.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-2 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm2.5-6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm3.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path></SvgIcon>} name="cookieCheck" />
           </Tooltip>
         </Grid>
       </Grid>
       <Routes>
-        <Route path="/Amulet" theme={theme} element={<Amulet amuletDB={amuletDB} setAmulet={setAmulet}/>} />
-        <Route path="/Armor" theme={theme} element={<Armor armorDB={armorDB} price={price} setArmor={setArmor}/>} />
-        <Route path="/Scroll" theme={theme} element={<Scroll scrollDB={scrollDB} price={price} setScroll={setScroll}/>} />
-        <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={setBook}/>} />
-        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={setPotion}/>} />
-        <Route path="/Ring" theme={theme} element={<Ring ringDB={ringDB} price={price} setRing={setRing}/>} />
-        <Route path="/Wand" theme={theme} element={<Wand wandDB={wandDB} price={price} setWand={setWand}/>} />  
+        <Route path="/Amulet" theme={theme} element={<Amulet amuletDB={amuletDB} setAmulet={handleAmChange}/>} />
+        <Route path="/Armor" theme={theme} element={<Armor armorDB={armorDB} price={price} setArmor={handleArChange}/>} />
+        <Route path="/Scroll" theme={theme} element={<Scroll scrollDB={scrollDB} price={price} setScroll={handleScChange}/>} />
+        <Route path="/SpellBook" theme={theme} element={<SpellBook bookDB={bookDB} price={price} setBook={handleBoChange}/>} />
+        <Route path="/Potion" theme={theme} element={<Potion potionDB={potionDB} price={price} setPotion={handlePoChange}/>} />
+        <Route path="/Ring" theme={theme} element={<Ring ringDB={ringDB} price={price} setRing={handleRiChange}/>} />
+        <Route path="/Wand" theme={theme} element={<Wand wandDB={wandDB} price={price} setWand={handleWaChange}/>} />  
       </Routes>
       </Container>
       </ThemeProvider>
