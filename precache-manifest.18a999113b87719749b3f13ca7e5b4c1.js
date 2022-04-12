@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "2e5a6eacc42d4c9a4ea7",
+    "revision": "b2682f2873de11ff1e24",
     "url": "/Nethack-ID-MEMO/static/css/main.6355378c.chunk.css"
   },
   {
-    "revision": "2e5a6eacc42d4c9a4ea7",
-    "url": "/Nethack-ID-MEMO/static/js/main.2e5a6eac.chunk.js"
+    "revision": "b2682f2873de11ff1e24",
+    "url": "/Nethack-ID-MEMO/static/js/main.b2682f28.chunk.js"
   },
   {
     "revision": "7942b90a2f689321d720",
@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "/Nethack-ID-MEMO/static/media/roboto-cyrillic-ext-400-normal.2e0b8660.woff2"
   },
   {
-    "revision": "73f26bf98a715ecab4d2287ff3a02ad0",
-    "url": "/Nethack-ID-MEMO/static/media/roboto-all-400-normal.73f26bf9.woff"
+    "revision": "756af8e5560d200e53b52b1ff70f2ad0",
+    "url": "/Nethack-ID-MEMO/static/media/roboto-vietnamese-400-normal.756af8e5.woff2"
   },
   {
-    "revision": "22786f243202d7912399ffd10c76fe78",
-    "url": "/Nethack-ID-MEMO/static/media/roboto-greek-400-normal.22786f24.woff2"
+    "revision": "73f26bf98a715ecab4d2287ff3a02ad0",
+    "url": "/Nethack-ID-MEMO/static/media/roboto-all-400-normal.73f26bf9.woff"
   },
   {
     "revision": "5cff07beab63ec777fc73ac0483811b0",
@@ -52,19 +52,19 @@ self.__precacheManifest = [
     "url": "/Nethack-ID-MEMO/static/media/roboto-cyrillic-400-normal.ba2c6cb0.woff2"
   },
   {
-    "revision": "718dded3393324e992b225ac61329e0c",
-    "url": "/Nethack-ID-MEMO/static/media/roboto-latin-ext-400-normal.718dded3.woff2"
+    "revision": "22786f243202d7912399ffd10c76fe78",
+    "url": "/Nethack-ID-MEMO/static/media/roboto-greek-400-normal.22786f24.woff2"
   },
   {
-    "revision": "756af8e5560d200e53b52b1ff70f2ad0",
-    "url": "/Nethack-ID-MEMO/static/media/roboto-vietnamese-400-normal.756af8e5.woff2"
+    "revision": "718dded3393324e992b225ac61329e0c",
+    "url": "/Nethack-ID-MEMO/static/media/roboto-latin-ext-400-normal.718dded3.woff2"
   },
   {
     "revision": "aa23b7b4bcf2b8f0e876106bb3de69c6",
     "url": "/Nethack-ID-MEMO/static/media/roboto-latin-400-normal.aa23b7b4.woff2"
   },
   {
-    "revision": "f4054128ea7486614f57ff310139663d",
+    "revision": "f51b713f7753425ed5b055a723e18c2f",
     "url": "/Nethack-ID-MEMO/index.html"
   }
 ];
