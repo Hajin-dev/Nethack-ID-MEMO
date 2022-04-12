@@ -2,12 +2,11 @@ import Cookies from "universal-cookie";
 import LZString from "lz-string";
 
 const cookies = new Cookies();
-
-export const  setCookie = (name, value, option) => {
+export const  setCookie = (name, value) => {
     if (name==='ch'){
-        return cookies.set(name,(value), { ...option });}
+        return cookies.set(name,(value), {path:'/',maxAge:60 * 60 * 24 * 365});}
     else{
-        return cookies.set(name,LZString.compressToEncodedURIComponent(JSON.stringify(value)), { ...option });}
+        return cookies.set(name,LZString.compressToEncodedURIComponent(JSON.stringify(value)), {path:'/',maxAge:60 * 60 * 24 * 365});}
 }
 
 
