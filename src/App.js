@@ -595,7 +595,7 @@ function App() {
     setCon(false)
   }
   return(
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <Container maxWidth="sm">
