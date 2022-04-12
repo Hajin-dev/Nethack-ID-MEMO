@@ -616,7 +616,7 @@ theme.spacing(4)
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <Slider aria-label="Ch-slider"value={ch} onChange={handlechChange} min={3} max={25} valueLabelDisplay="auto"/>
+          <Slider value={Number(ch)} onChange={handlechChange} min={3} max={25} valueLabelDisplay="auto"/>
         </Grid>
         <Grid item xs={3}>
           <Tooltip title="Clear Data">
