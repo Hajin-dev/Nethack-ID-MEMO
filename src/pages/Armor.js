@@ -75,34 +75,31 @@ function Armor(props) {
     switch(Number(x.ar)){
       case 0:
         switch (Number(x.base)){
-          case 0: return(_.pick(armorInfo,_.range(1,5)))
           case 2: return(_.pick(armorInfo,['1']))
           case 6: return(_.pick(armorInfo,['2','3','4']))
+          default: return(_.pick(armorInfo,_.range(1,5)))
         }
-        break
       case 1:
         switch (Number(x.base)){
-          case 0: return(_.pick(armorInfo,_.range(5,9)))
           case 6: return(_.pick(armorInfo,['5','6']))
           case 7: return(_.pick(armorInfo,['7','8']))
+          default: return(_.pick(armorInfo,_.range(5,9)))
         }
-        break
       case 2:
         switch (Number(x.base)){
-          case 0: return(_.pick(armorInfo,_.range(9,13)))
           case 1: return(_.pick(armorInfo,['9']))
           case 7: return(_.pick(armorInfo,['10','11','12']))
+          default: return(_.pick(armorInfo,_.range(9,13)))
         }
-        break
       case 3:
         switch (Number(x.base)){
-          case 0: return(_.pick(armorInfo,_.range(13,20)))
           case 1: return(_.pick(armorInfo,['16','17']))
           case 4: return(_.pick(armorInfo,['18','19']))
           case 6: return(_.pick(armorInfo,['13','14','15']))
+          default: return(_.pick(armorInfo,_.range(13,20)))
         }
-        break
-      
+      default:
+        return armorInfo
     }
   }
   Object.entries(baseSet).forEach(([key,value],i,a)=>{
