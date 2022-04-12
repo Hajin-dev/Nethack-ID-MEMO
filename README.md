@@ -4,4 +4,4 @@
 
 - It also support data storage through cookies.
 
-- This is a beta version. Be caution of using it
+- This is a beta version. Please Be caution of using it.
