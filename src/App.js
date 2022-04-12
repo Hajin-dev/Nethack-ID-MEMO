@@ -25,9 +25,13 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { AiOutlineClear } from "react-icons/ai";
 import Checkbox from '@material-ui/core/Checkbox';
-import { BiCookie } from "react-icons/bi";
+import { BiCookie,BiCheck,BiX } from "react-icons/bi";
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {setCookie, getCookie,removeCookie} from "./cookie"
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 let theme = createTheme({
     typography:{
     "fontFamily":[
@@ -53,6 +57,7 @@ theme.spacing(4)
 function App() {
   const [isRemeber,setRemember]=useState(false);
   const [ch,setCh]= useState(10);
+  const [confirmReset,setCon]=useState(false)
   var price= //가격표(price DB)
   [ {value:8,s1:4,s2:3,b1:0,b2:0},
     {value:10,s1:5,s2:4,b1:0,b2:0},
@@ -469,15 +474,14 @@ function App() {
       {no:38, ap: "YUM YUM",base: 0, name: 0},
       {no:39, ap: "ZELGO MER",base: 0, name: 0},
       {no:40, ap: "ZLORFIK",base: 0, name: 0},])
-    if(isRemeber){
-      setCookie('ar',armorDB)
-      setCookie('am',amuletDB)
-      setCookie('po',potionDB)
-      setCookie('sc',scrollDB)
-      setCookie('sp',bookDB)
-      setCookie('rj',ringDB)
-      setCookie('wa',wandDB)
-    }
+    setCon(false)
+    removeCookie('bo')
+    removeCookie('am')
+    removeCookie('ar')
+    removeCookie('sc')
+    removeCookie('po')
+    removeCookie('wa')
+    removeCookie('ri')
   }
   useEffect(()=>{
     if(getCookie('ch')!==undefined)
@@ -584,6 +588,12 @@ function App() {
     }
   };
   const classes = useStyles();
+  const handleOpen=()=>{
+    setCon(true)
+  }
+  const handleClose=()=>{
+    setCon(false)
+  }
   return(
     <BrowserRouter>
     <ThemeProvider theme={theme}>
@@ -601,10 +611,19 @@ function App() {
         </Grid>
         <Grid item xs={3}>
           <Tooltip title="Clear Data">
-            <IconButton color="primary" aria-label="Clear Data" component="span" onClick={resetData}>
+            <IconButton color="primary" aria-label="Clear Data" component="span" onClick={handleOpen} >
               <AiOutlineClear />
             </IconButton>
           </Tooltip>
+          <Dialog
+          open={confirmReset}
+          onClose={handleClose}>
+            <DialogTitle>{"Are you sure to clear data?"}</DialogTitle>
+            <DialogActions>
+              <IconButton color="primary" aria-label="Confirm clear Data" component="span" onClick={handleClose}><BiX/></IconButton>
+              <IconButton color="primary" aria-label="Confirm clear Data" component="span" onClick={resetData}><BiCheck/></IconButton>
+            </DialogActions>
+          </Dialog>
           <Tooltip title="Save Cookie?">
           <Checkbox
           onChange={handleCookie}
