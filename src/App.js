@@ -2,6 +2,7 @@ import React,{useState,useEffect}from 'react';
 import{ BrowserRouter,Route, Routes } from 'react-router-dom';
 import './App.css';
 
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CssBaseline from '@material-ui/core/CssBaseline';
 //import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -32,7 +33,17 @@ import {setCookie, getCookie,removeCookie} from "./cookie"
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
+
+function App() {
+
+  const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)');
+
 let theme = createTheme({
+  palette:{
+    type: prefersLightMode ? 'light':'dark',
+  }  
+  ,
     typography:{
     "fontFamily":[
       'Open Sans','sans-serif'
@@ -40,7 +51,6 @@ let theme = createTheme({
   }
   }
 );
-
 const useStyles = makeStyles({
   setchMargin:{
     border: 0,
@@ -54,7 +64,6 @@ const useStyles = makeStyles({
   }
 })
 theme.spacing(4)
-function App() {
   const [isRemeber,setRemember]=useState(false);
   const [ch,setCh]= useState(10);
   const [confirmReset,setCon]=useState(false)

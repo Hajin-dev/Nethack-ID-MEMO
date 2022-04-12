@@ -71,7 +71,6 @@ function Armor(props) {
   const sellSet = {}
   const buySet = {}
   function setAvailable(x){
-    console.log(x)
     switch(Number(x.ar)){
       case 0:
         switch (Number(x.base)){
@@ -197,7 +196,7 @@ function Armor(props) {
       body:{
         deleteTooltip:"Reset",
         editRow:{
-          deletText:"Reset?"
+          deleteText:"Reset this row?"
         }
       }
     }}
