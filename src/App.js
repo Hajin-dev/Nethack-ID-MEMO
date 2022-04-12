@@ -595,7 +595,7 @@ function App() {
     setCon(false)
   }
   return(
-    <BrowserRouter>
+    <BrowserRouter basename="/Nethack-ID-MEMO">
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <Container maxWidth="sm">
