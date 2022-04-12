@@ -1,4 +1,4 @@
-# Nethack ID MEMEO
+# Nethack-ID-MEMO
 
 - This is a Web Application which can help Nethack player to identification Randomized Items by a buy/selling price
 
