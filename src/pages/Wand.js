@@ -136,7 +136,36 @@ function Wand(props) {
       lookup: sellSet},
     { field:"base",title:"Buy Price", editable:'always',
       lookup: buySet},
-    { field: "ap",title: "Apperance", editable:'never'
+    { field: "no",title: "Apperance", editable:'never',
+      lookup:{
+      0:"aluminum",
+      1:"balsa",
+      2:"brass",
+      3:"copper",
+      4:"crystal",
+      5:"curved",
+      6:"ebony",
+      7:"forked",
+      8:"glass",
+      9:"hexagonal",
+      10:"iridium",
+      11:"iron",
+      12:"jeweled",
+      13:"long",
+      14:"maple",
+      15:"marble",
+      16:"oak",
+      17:"pine",
+      18:"platinum",
+      19:"runed",
+      20:"short",
+      21:"silver",
+      22:"spiked",
+      23:"steel",
+      24:"tin",
+      25:"uranium",
+      26:"zinc",
+      }
     }
   ];
   return (
