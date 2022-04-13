@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9582ce96b09c65c0ac76",
+    "revision": "38f4aa5d96e3cd60f83e",
     "url": "/Nethack-ID-MEMO/static/css/main.25515449.chunk.css"
   },
   {
-    "revision": "9582ce96b09c65c0ac76",
-    "url": "/Nethack-ID-MEMO/static/js/main.9582ce96.chunk.js"
+    "revision": "38f4aa5d96e3cd60f83e",
+    "url": "/Nethack-ID-MEMO/static/js/main.38f4aa5d.chunk.js"
   },
   {
     "revision": "56247a67415e3c03ca59",
@@ -48,10 +48,6 @@ self.__precacheManifest = [
     "url": "/Nethack-ID-MEMO/static/media/roboto-cyrillic-400-normal.ba2c6cb0.woff2"
   },
   {
-    "revision": "756af8e5560d200e53b52b1ff70f2ad0",
-    "url": "/Nethack-ID-MEMO/static/media/roboto-vietnamese-400-normal.756af8e5.woff2"
-  },
-  {
     "revision": "22786f243202d7912399ffd10c76fe78",
     "url": "/Nethack-ID-MEMO/static/media/roboto-greek-400-normal.22786f24.woff2"
   },
@@ -64,7 +60,11 @@ self.__precacheManifest = [
     "url": "/Nethack-ID-MEMO/static/media/roboto-latin-400-normal.aa23b7b4.woff2"
   },
   {
-    "revision": "975c92a19446c48d6452ea31b8f0b5b4",
+    "revision": "756af8e5560d200e53b52b1ff70f2ad0",
+    "url": "/Nethack-ID-MEMO/static/media/roboto-vietnamese-400-normal.756af8e5.woff2"
+  },
+  {
+    "revision": "2085306540b6aba0cac66e982bd1501a",
     "url": "/Nethack-ID-MEMO/index.html"
   }
 ];

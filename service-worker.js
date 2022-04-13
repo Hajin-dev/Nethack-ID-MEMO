@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Nethack-ID-MEMO/precache-manifest.fc890d9027b184ffed66bad34467429a.js"
+  "/Nethack-ID-MEMO/precache-manifest.9f4b6c397e9293a92d4573676da2b473.js"
 );
 
 workbox.clientsClaim();
