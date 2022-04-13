@@ -57,7 +57,18 @@ function Amulet(props) {
       9:"versus poison"
       }
     },
-    { field: "ap",title: "Apperance", editable:'never'
+    { field: "ap",title: "Apperance", editable:'never',
+    lookup:{
+      0:"circular",
+      1:"spherical",
+      2:"oval",
+      3:"triangular",
+      4:"pyramidal",
+      5:"square",
+      6:"concave",
+      7:"hexagonal",
+      8:"octagonal"
+    }
     }
   ];
 

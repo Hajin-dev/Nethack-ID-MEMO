@@ -35,6 +35,36 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
+const am = [
+{no:0, ap:0, name: 0},
+{no:1, ap: 1, name: 0},
+{no:2, ap: 2, name:  0},
+{no:3, ap: 3, name: 0},
+{no:4, ap: 4, name: 0},
+{no:5, ap: 5, name: 0},
+{no:6, ap: 6, name: 0},
+{no:7, ap: 7, name: 0},
+{no:8, ap: 8, name: 0},]
+const ar = [
+{ar:0, ap: 0,base: 0, name: 0},
+{ar:0, ap: 1,base: 0, name: 0},
+{ar:0, ap: 2,base: 0, name: 0},
+{ar:0, ap: 3,base: 0, name: 0},
+{ar:1, ap: 4,base: 0, name: 0},
+{ar:1, ap: 5,base: 0, name: 0},
+{ar:1, ap: 6,base: 0, name: 0},
+{ar:1, ap: 7,base: 0, name: 0},
+{ar:2, ap: 8,base: 0, name: 0},
+{ar:2, ap: 9,base: 0, name: 0},
+{ar:2, ap: 10,base: 0, name: 0},
+{ar:2, ap: 11,base: 0, name: 0},
+{ar:3, ap: 12,base: 0, name: 0},
+{ar:3, ap: 13,base: 0, name: 0},
+{ar:3, ap: 14,base: 0, name: 0},
+{ar:3, ap: 15,base: 0, name: 0},
+{ar:3, ap: 16,base: 0, name: 0},
+{ar:3, ap: 17,base: 0, name: 0},
+{ar:3, ap: 18,base: 0, name: 0},]
 function App() {
 
   const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)');
@@ -87,15 +117,7 @@ theme.spacing(4)
     {value:400,s1:200,s2:150,b1:0,b2:0},
     {value:600,s1:300,s2:225,b1:0,b2:0},
     {value:700,s1:350,s2:263,b1:0,b2:0}];
-  const [amuletDB,setAmulet] = useState([ {no:0, ap: "circular", name: 0},
-  {no:1, ap: "spherical", name: 0},
-  {no:2, ap: "oval", name:  0},
-  {no:3, ap: "triangular", name: 0},
-  {no:4, ap: "pyramidal", name: 0},
-  {no:5, ap: "square", name: 0},
-  {no:6, ap: "concave", name: 0},
-  {no:7, ap: "hexagonal", name: 0},
-  {no:8, ap: "octagonal", name: 0},])
+  const [amuletDB,setAmulet] = useState(am)
   const [potionDB,setPotion] = useState([{no:0,ap: "black",base:0, name: 0},
   {no:1,ap: "brilliant-blue",base:0, name: 0},
   {no:2,ap: "brown",base:0, name: 0},
@@ -121,26 +143,7 @@ theme.spacing(4)
   {no:22,ap: "swirly",base:0, name: 0},
   {no:23,ap: "white",base:0, name: 0},
   {no:24,ap: "yellow",base:0, name: 0},])
-  const [armorDB,setArmor] = useState([
-  {ar:0, ap: 0,base: 0, name: 0},
-  {ar:0, ap: 1,base: 0, name: 0},
-  {ar:0, ap: 2,base: 0, name: 0},
-  {ar:0, ap: 3,base: 0, name: 0},
-  {ar:1, ap: 4,base: 0, name: 0},
-  {ar:1, ap: 5,base: 0, name: 0},
-  {ar:1, ap: 6,base: 0, name: 0},
-  {ar:1, ap: 7,base: 0, name: 0},
-  {ar:2, ap: 8,base: 0, name: 0},
-  {ar:2, ap: 9,base: 0, name: 0},
-  {ar:2, ap: 10,base: 0, name: 0},
-  {ar:2, ap: 11,base: 0, name: 0},
-  {ar:3, ap: 12,base: 0, name: 0},
-  {ar:3, ap: 13,base: 0, name: 0},
-  {ar:3, ap: 14,base: 0, name: 0},
-  {ar:3, ap: 15,base: 0, name: 0},
-  {ar:3, ap: 16,base: 0, name: 0},
-  {ar:3, ap: 17,base: 0, name: 0},
-  {ar:3, ap: 18,base: 0, name: 0},])
+  const [armorDB,setArmor] = useState(ar)
   const [bookDB,setBook] = useState([
     {no:0, ap: "bronze",base: 0, name: 0},
     {no:1, ap: "cloth",base: 0, name: 0},
@@ -294,15 +297,7 @@ theme.spacing(4)
     }
   setValue()
   function resetData(){
-    setAmulet([ {no:0, ap: "circular", name: 0},
-    {no:1, ap: "spherical", name: 0},
-    {no:2, ap: "oval", name:  0},
-    {no:3, ap: "triangular", name: 0},
-    {no:4, ap: "pyramidal", name: 0},
-    {no:5, ap: "square", name: 0},
-    {no:6, ap: "concave", name: 0},
-    {no:7, ap: "hexagonal", name: 0},
-    {no:8, ap: "octagonal", name: 0},])
+    setAmulet(am)
     setPotion([{no:0,ap: "black",base:0, name: 0},
   {no:1,ap: "brilliant-blue",base:0, name: 0},
   {no:2,ap: "brown",base:0, name: 0},
@@ -328,25 +323,7 @@ theme.spacing(4)
   {no:22,ap: "swirly",base:0, name: 0},
   {no:23,ap: "white",base:0, name: 0},
     {no:24,ap: "yellow",base:0, name: 0},])
-    setArmor([ {ar:0, ap: "plumed helmet",base: 0, name: 0},
-    {ar:0, ap: "etched helmet",base: 0, name: 0},
-    {ar:0, ap: "crested helmet",base: 0, name: 0},
-    {ar:0, ap: "visored helmet",base: 0, name: 0},
-    {ar:1, ap: "tattered cape",base: 0, name: 0},
-    {ar:1, ap: "ornamental cope",base: 0, name: 0},
-    {ar:1, ap: "opera cloak",base: 0, name: 0},
-    {ar:1, ap: "piece of cloth",base: 0, name: 0},
-    {ar:2, ap: "old gloves",base: 0, name: 0},
-    {ar:2, ap: "padded gloves",base: 0, name: 0},
-    {ar:2, ap: "riding gloves",base: 0, name: 0},
-    {ar:2, ap: "fencing gloves",base: 0, name: 0},
-    {ar:3, ap: "mud boots",base: 0, name: 0},
-    {ar:3, ap: "snow boots",base: 0, name: 0},
-    {ar:3, ap: "riding boots",base: 0, name: 0},
-    {ar:3, ap: "buckled boots",base: 0, name: 0},
-    {ar:3, ap: "hiking boots",base: 0, name: 0},
-    {ar:3, ap: "combat boots",base: 0, name: 0},
-    {ar:3, ap: "jungle boots",base: 0, name: 0},])
+    setArmor(ar)
     setBook([
       {no:0, ap: "bronze",base: 0, name: 0},
       {no:1, ap: "cloth",base: 0, name: 0},
