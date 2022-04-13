@@ -137,7 +137,34 @@ function Potion(props) {
       lookup: sellSet},
     { field:"base",title:"Buy Price", editable:'always',
       lookup: buySet},
-    { field: "ap",title: "Apperance", editable:'never'
+    { field: "no",title: "Apperance", editable:'never',
+    lookup:{
+      0:"ruby",
+      1:"pink",
+      2:"orange",
+      3:"yellow",
+      4:"emerald",
+      5:"dark green",
+      6:"cyan",
+      7:"sky blue",
+      8:"brilliant blue",
+      9:"magenta",
+      10:"purple-red",
+      11:"puce",
+      12:"milky",
+      13:"swirly",
+      14:"bubbly",
+      15:"smoky",
+      16:"cloudy",
+      17:"effervescent",
+      18:"black",
+      19:"golden",
+      20:"brown",
+      21:"fizzy",
+      22:"dark",
+      23:"white",
+      24:"murky",
+    }
     }
   ];
   return (

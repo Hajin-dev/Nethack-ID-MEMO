@@ -65,6 +65,33 @@ const ar = [
 {ar:3, ap: 16,base: 0, name: 0},
 {ar:3, ap: 17,base: 0, name: 0},
 {ar:3, ap: 18,base: 0, name: 0},]
+const po = [
+{no:0,base:0,name:0},
+{no:1,base:0,name:0},
+{no:2,base:0,name:0},
+{no:3,base:0,name:0},
+{no:4,base:0,name:0},
+{no:5,base:0,name:0},
+{no:6,base:0,name:0},
+{no:7,base:0,name:0},
+{no:8,base:0,name:0},
+{no:9,base:0,name:0},
+{no:10,base:0,name:0},
+{no:11,base:0,name:0},
+{no:12,base:0,name:0},
+{no:13,base:0,name:0},
+{no:14,base:0,name:0},
+{no:15,base:0,name:0},
+{no:16,base:0,name:0},
+{no:17,base:0,name:0},
+{no:18,base:0,name:0},
+{no:19,base:0,name:0},
+{no:20,base:0,name:0},
+{no:21,base:0,name:0},
+{no:22,base:0,name:0},
+{no:23,base:0,name:0},
+{no:24,base:0,name:0},
+]
 function App() {
 
   const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)');
@@ -118,31 +145,7 @@ theme.spacing(4)
     {value:600,s1:300,s2:225,b1:0,b2:0},
     {value:700,s1:350,s2:263,b1:0,b2:0}];
   const [amuletDB,setAmulet] = useState(am)
-  const [potionDB,setPotion] = useState([{no:0,ap: "black",base:0, name: 0},
-  {no:1,ap: "brilliant-blue",base:0, name: 0},
-  {no:2,ap: "brown",base:0, name: 0},
-  {no:3,ap: "bubbly",base:0, name: 0},
-  {no:4,ap: "cloudy",base:0, name: 0},
-  {no:5,ap: "cyan",base:0, name: 0},
-  {no:6,ap: "dark-green",base:0, name: 0},
-  {no:7,ap: "dark",base:0, name: 0},
-  {no:8,ap: "effervescent",base:0, name: 0},
-  {no:9,ap: "emerald",base:0, name: 0},
-  {no:10,ap: "fizzy",base:0, name: 0},
-  {no:11,ap: "golden",base:0, name: 0},
-  {no:12,ap: "magenta",base:0, name: 0},
-  {no:13,ap: "milky",base:0, name: 0},
-  {no:14,ap: "murky",base:0, name: 0},
-  {no:15,ap: "orange",base:0, name: 0},
-  {no:16,ap: "pink",base:0, name: 0},
-  {no:17,ap: "puce",base:0, name: 0},
-  {no:18,ap: "purple-red",base:0, name: 0},
-  {no:19,ap: "ruby",base:0, name: 0},
-  {no:20,ap: "sky-blue",base:0, name: 0},
-  {no:21,ap: "smoky",base:0, name: 0},
-  {no:22,ap: "swirly",base:0, name: 0},
-  {no:23,ap: "white",base:0, name: 0},
-  {no:24,ap: "yellow",base:0, name: 0},])
+  const [potionDB,setPotion] = useState(po)
   const [armorDB,setArmor] = useState(ar)
   const [bookDB,setBook] = useState([
     {no:0, ap: "bronze",base: 0, name: 0},
@@ -298,31 +301,7 @@ theme.spacing(4)
   setValue()
   function resetData(){
     setAmulet(am)
-    setPotion([{no:0,ap: "black",base:0, name: 0},
-  {no:1,ap: "brilliant-blue",base:0, name: 0},
-  {no:2,ap: "brown",base:0, name: 0},
-  {no:3,ap: "bubbly",base:0, name: 0},
-  {no:4,ap: "cloudy",base:0, name: 0},
-  {no:5,ap: "cyan",base:0, name: 0},
-  {no:6,ap: "dark-green",base:0, name: 0},
-  {no:7,ap: "dark",base:0, name: 0},
-  {no:8,ap: "effervescent",base:0, name: 0},
-  {no:9,ap: "emerald",base:0, name: 0},
-  {no:10,ap: "fizzy",base:0, name: 0},
-  {no:11,ap: "golden",base:0, name: 0},
-  {no:12,ap: "magenta",base:0, name: 0},
-  {no:13,ap: "milky",base:0, name: 0},
-  {no:14,ap: "murky",base:0, name: 0},
-  {no:15,ap: "orange",base:0, name: 0},
-  {no:16,ap: "pink",base:0, name: 0},
-  {no:17,ap: "puce",base:0, name: 0},
-  {no:18,ap: "purple-red",base:0, name: 0},
-  {no:19,ap: "ruby",base:0, name: 0},
-  {no:20,ap: "sky-blue",base:0, name: 0},
-  {no:21,ap: "smoky",base:0, name: 0},
-  {no:22,ap: "swirly",base:0, name: 0},
-  {no:23,ap: "white",base:0, name: 0},
-    {no:24,ap: "yellow",base:0, name: 0},])
+    setPotion(po)
     setArmor(ar)
     setBook([
       {no:0, ap: "bronze",base: 0, name: 0},
