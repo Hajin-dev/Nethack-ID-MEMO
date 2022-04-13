@@ -98,7 +98,7 @@ function Armor(props) {
           default: return(_.pick(armorInfo,_.range(13,20)))
         }
       default:
-        return armorInfo
+        return _.pick(armorInfo,['0'])
     }
   }
   Object.entries(baseSet).forEach(([key,value],i,a)=>{
@@ -115,7 +115,7 @@ function Armor(props) {
     { field: "name",title: "Armor", canEdit: "always",
     validate: rowData=>{
       for (let x of props.armorDB){
-        if ((x.no !== rowData.no)&&(x.name === rowData.name)&&(rowData.name!==0)) return 'overlapped!'
+        if ((x.ap !== rowData.ap)&&(x.name === rowData.name)&&(rowData.name!==0)) return 'overlapped!'
       }
       return ''
     },
@@ -147,7 +147,28 @@ function Armor(props) {
       lookup: sellSet},
     { field:"base",title:"Buy Price", editable:'always',
       lookup: buySet},
-    { field: "ap",title: "Apperance", editable:'never'
+    { field: "ap",title: "Apperance", editable:'never',
+    lookup:{
+      0:"etched helmet",
+      1:"crested helmet",
+      2:"visored helmet",
+      3:"plumed helmet",
+      4:"tattered cape",
+      5:"ornamental cope",
+      6:"opera cloak",
+      7:"piece of cloth",
+      8:"old gloves",
+      9:"padded gloves",
+      10:"riding gloves",
+      11:"fencing gloves",
+      12:"mud boots",
+      13:"snow boots",
+      14:"riding boots",
+      15:"buckled boots",
+      16:"hiking boots",
+      17:"combat boots",
+      18:"jungle boots"
+    }
     }
   ];
   return (
