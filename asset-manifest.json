@@ -1,7 +1,7 @@
 {
   "main.css": "/Nethack-ID-MEMO/static/css/main.25515449.chunk.css",
-  "main.js": "/Nethack-ID-MEMO/static/js/main.38f4aa5d.chunk.js",
-  "main.js.map": "/Nethack-ID-MEMO/static/js/main.38f4aa5d.chunk.js.map",
+  "main.js": "/Nethack-ID-MEMO/static/js/main.0bbcc43f.chunk.js",
+  "main.js.map": "/Nethack-ID-MEMO/static/js/main.0bbcc43f.chunk.js.map",
   "static/css/1.904095de.chunk.css": "/Nethack-ID-MEMO/static/css/1.904095de.chunk.css",
   "static/js/1.56247a67.chunk.js": "/Nethack-ID-MEMO/static/js/1.56247a67.chunk.js",
   "static/js/1.56247a67.chunk.js.map": "/Nethack-ID-MEMO/static/js/1.56247a67.chunk.js.map",
@@ -13,10 +13,10 @@
   "static/js/4.510ee49e.chunk.js.map": "/Nethack-ID-MEMO/static/js/4.510ee49e.chunk.js.map",
   "runtime~main.js": "/Nethack-ID-MEMO/static/js/runtime~main.01ffed8a.js",
   "runtime~main.js.map": "/Nethack-ID-MEMO/static/js/runtime~main.01ffed8a.js.map",
-  "static/media/index.css": "/Nethack-ID-MEMO/static/media/roboto-vietnamese-400-normal.756af8e5.woff2",
+  "static/media/index.css": "/Nethack-ID-MEMO/static/media/roboto-latin-400-normal.aa23b7b4.woff2",
   "static/css/main.25515449.chunk.css.map": "/Nethack-ID-MEMO/static/css/main.25515449.chunk.css.map",
   "static/css/1.904095de.chunk.css.map": "/Nethack-ID-MEMO/static/css/1.904095de.chunk.css.map",
   "index.html": "/Nethack-ID-MEMO/index.html",
-  "precache-manifest.9f4b6c397e9293a92d4573676da2b473.js": "/Nethack-ID-MEMO/precache-manifest.9f4b6c397e9293a92d4573676da2b473.js",
+  "precache-manifest.e8effb2bcd2edce18b9ed80b8c9fa10d.js": "/Nethack-ID-MEMO/precache-manifest.e8effb2bcd2edce18b9ed80b8c9fa10d.js",
   "service-worker.js": "/Nethack-ID-MEMO/service-worker.js"
 }
